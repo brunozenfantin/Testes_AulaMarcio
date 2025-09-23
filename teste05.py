@@ -11,3 +11,4 @@ response = requests.get("https://jsonplaceholder.typicode.com/posts/1",
 
 post = response.json()
 print("Post Encontrado:", post["title"])
+print("Status da Response:", response.status_code)

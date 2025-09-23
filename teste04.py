@@ -11,7 +11,10 @@ response =requests.post("https://jsonplaceholder.typicode.com/posts",
                         json=dados)
 
 novo_post = response.json()
-print("Post cadastrado com Sucesso: \n\n")
-print(novo_post["id"])
 
-print(novo_post["title"])
+if response.status_code == 201:
+    print("Post cadastrado com Sucesso: \n\n")
+    print(novo_post["id"])
+    print(novo_post["title"])
+else:
+    print("ERRO", response.status_code) 
