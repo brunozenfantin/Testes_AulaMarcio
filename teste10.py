@@ -27,7 +27,19 @@ def buscar_usuario(id):
     
     return jsonify({"erro": "usuario não encontrado" }), 404 
 
-    
+#POST cadastra usuario
+@app.route("/usuarios", methods=["POST"])
+def criar_usuario():
+    dados = request.get_json()
+
+    novo = {
+        "id":len(usuarios) + 1,
+        "nome": dados.get("nome")
+    }
+
+    usuarios.append(novo)
+    return jsonify(novo), 201
+
 
 #inicia o server
 if __name__ == "__main__":
