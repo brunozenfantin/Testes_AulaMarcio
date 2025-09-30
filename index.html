@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="htts://hunter2labs.s3.amazonaws.com/common.css">
+        <script src="htts://hunter2labs.s3.amazonaws.com/common.css"></script>
+    </head>
+    <body>
+        <div class="container">
+            {% if secret_code %}
+                <h5>{{secret_code}}</h5>
+                <a href="/logout">Log Out</a>
+            {% else %}
+                <form action="/" method="post">
+                    <input type="username" name="username" placeholder="Username">
+                    <input type="password" name="password" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+                {% if error %}
+                    <h5>{{error}}</h5>
+                {% else %}
+                    <h5> Login com user:</h5>
+                {% endif %}
+            {% endif %}
+                 </div>
+
+    </body>
+</html>
